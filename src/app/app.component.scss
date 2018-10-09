@@ -1,0 +1,175 @@
+* {
+  //color: rgb(213, 213, 213);
+  //color: #fff;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 48px;
+  padding-top: 35vh;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.selfy {
+  right: -25vw;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  filter: grayscale(100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 15%, rgba(36, 36, 36, 1) 75%);
+}
+
+.btn {
+  color: #fff;
+  background-color: #103158;
+  border: none;
+  font-family: Arial;
+  font-size: 16px;
+  padding: 15px 35px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: .2s background-color;
+}
+
+.btn:hover, .slider:hover::-webkit-slider-thumb {
+  background-color: #2466b5;
+}
+
+form {
+  width: 600px;
+  margin: auto;
+  input[type=submit] {
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+  }
+}
+
+label {
+  height: 60px;
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+  span {
+    margin: 30px 20px;
+    display: inline-block;
+    transition: .2s margin;
+    position: absolute;
+  }
+  input[type=text], input[type=email] {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #d3d3d3;
+    padding: 30px 20px 10px 20px;
+    line-height: 18px;
+    font-size: 16px;
+    outline: none;
+    flex: 1;
+    transition: border-bottom .2s;
+    &:hover, &:focus {
+      border-bottom: 2px solid #242424;
+    }
+  }
+  input[type=text]:focus + span,
+  input[type=email]:focus + span {
+    margin: 0;
+  }
+}
+
+section {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  width: calc(8px + 100%);
+}
+
+header {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 60px;
+  .nav-bar {
+    display: flex;
+    .nav-bar-item {
+      padding: 20px 0;
+      margin-right: 20px;
+      a {
+        text-decoration: none;
+        line-height: 20px;
+        font-size: 18px;
+        color: rgb(171, 171, 171);
+        transition: .2s color;
+      }
+    }
+    .nav-bar-item:hover {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+label.slider-label {
+  display: flex;
+  span {
+    margin: auto 20px auto auto;
+    position: initial;
+    width: 60px;
+  }
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  height: 2px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  flex: 1;
+  margin: auto;
+  -webkit-transition: .2s;
+  transition: opacity .2s, background .2s;
+}
+
+.slider-info {
+  margin: auto auto auto 20px;
+  width: 116px;
+  text-align: right;
+}
+
+.slider:hover {
+  background: #242424;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #103158;
+  cursor: pointer;
+  transition: .2s background-color;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
