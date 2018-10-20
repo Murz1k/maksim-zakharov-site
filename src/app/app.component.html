@@ -20,7 +20,7 @@
 }" (click)="goToSection(0)">
 
 </div>
-<div class="menu">
+<div [class.active]="currentSection !== 0" class="menu">
   <div (click)="goToSection(1)">Кто я?</div>
   <div (click)="goToSection(2)">Почему я?</div>
   <div (click)="goToSection(3)">Отзывы</div>

@@ -60,18 +60,11 @@ form {
 }
 
 section {
-  background-color: #242424;
-  color: transparent;
-  transition: color 1s ease-in;
-  button, a {
-    opacity: 0;
-    transition: opacity 1s ease-in;
-  }
+  color: #fff;
+  transition: opacity 0.5s;
+  opacity: 0;
   &.active {
-    color: #fff;
-    button, a {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 }
 
@@ -96,9 +89,9 @@ label {
     outline: none;
     flex: 1;
     transition: border-bottom .2s;
-    &:hover, &:focus {
-      border-bottom: 2px solid #242424;
-    }
+    //&:hover, &:focus {
+    //  border-bottom: 2px solid #242424;
+    //}
   }
   input[type=text]:focus + span,
   input[type=email]:focus + span {
@@ -269,6 +262,11 @@ label.slider-label {
   color: white;
   top: calc(100vh / 4);
   left: 30px;
+  opacity: 0;
+  transition: opacity .8s;
+  &.active {
+    opacity: 1;
+  }
   > div {
     margin-bottom: 10px;
     font-size: 20px;
