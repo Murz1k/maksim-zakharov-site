@@ -112,7 +112,7 @@ export class AppComponent implements OnInit {
 
     this.load = true;
 
-    this.goToSection(--this.currentSection);
+    this.goToSection(this.currentSection - 1);
   }
 
   next() {
@@ -126,10 +126,13 @@ export class AppComponent implements OnInit {
 
     this.load = true;
 
-    this.goToSection(++this.currentSection);
+    this.goToSection(this.currentSection + 1);
   }
 
   goToSection(currentSection: number) {
+    if (this.currentSection === currentSection) {
+      return;
+    }
     window.scrollTo({left: 0, top: (this.sectionHeight * currentSection) + 1, behavior: 'smooth'});
     this.currentSection = currentSection;
   }
