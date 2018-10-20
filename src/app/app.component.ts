@@ -129,13 +129,18 @@ export class AppComponent implements OnInit {
     if (this.currentSection === currentSection) {
       return;
     }
-    window.scrollTo({left: 0, top: (this.sectionHeight * currentSection) + 1, behavior: 'smooth'});
+    //if (currentSection === 0) {
+    //  window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
+    //} else {
+      window.scrollTo({left: 0, top: (this.sectionHeight * currentSection) + 1, behavior: 'smooth'});
+    //}
     this.currentSection = currentSection;
   }
 
   @HostListener('document:scroll')
   private onScroll(): void {
-    // const st = window.pageYOffset || document.documentElement.scrollTop;
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+    console.log(st);
     // if (this.currentSection === -1 && st > 0) {
     //   this.currentSection = 0;
     // }

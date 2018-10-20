@@ -103,7 +103,7 @@ section {
   height: 100vh;
   position: sticky;
   top: 0;
-  width: calc(8px + 100%);
+  width: 100%;
 }
 
 header {
@@ -190,12 +190,8 @@ label.slider-label {
   cursor: pointer;
 }
 
-.main-section {
-
-}
-
 .center-container {
-  padding-top: calc(100vh / 2 - 260px);
+  padding-top: calc((100vh - 420px) / 2);
 }
 
 .copyright {
