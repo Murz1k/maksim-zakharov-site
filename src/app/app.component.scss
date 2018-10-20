@@ -262,20 +262,15 @@ label.slider-label {
   color: white;
   top: calc(100vh / 4);
   left: 30px;
-  opacity: 0;
-  transition: opacity .8s;
   cursor: default;
-  &.active {
-    opacity: 1;
-    cursor: pointer;
-  }
   > div {
     margin-bottom: 10px;
     font-size: 20px;
     opacity: 0.75;
     transition: opacity .2s;
-    &:hover {
+    &:hover, &.active {
       opacity: 1;
+      cursor: pointer;
     }
   }
 }

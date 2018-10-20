@@ -13,13 +13,10 @@ export class AppComponent implements OnInit {
 
   budgets = [];
   deadlines = [];
-  lastScrollTop = 1;
   currentExp;
   currentYear = 2016;
 
   keys = {37: 1, 38: 1, 39: 1, 40: 1};
-
-  scrolling = false;
 
   sectionHeight = 0;
 
@@ -93,7 +90,6 @@ export class AppComponent implements OnInit {
 
   @HostListener('document:wheel', ['$event'])
   private onWheel($event: WheelEvent): void {
-    console.log($event);
     if ($event.deltaY > 0) {// down
       this.next();
     } else {// top
@@ -139,14 +135,10 @@ export class AppComponent implements OnInit {
 
   @HostListener('document:scroll')
   private onScroll(): void {
-    const st = window.pageYOffset || document.documentElement.scrollTop;
-    if (!this.load && this.lastScrollTop === 0 && st !== this.lastScrollTop) {
-      window.scrollTo({left: 0, top: 0});
-      setTimeout(() => {
-        this.load = true;
-      }, 150);
-      return;
-    }
+    // const st = window.pageYOffset || document.documentElement.scrollTop;
+    // if (this.currentSection === -1 && st > 0) {
+    //   this.currentSection = 0;
+    // }
   }
 
   get deadline(): string {
@@ -162,5 +154,6 @@ export class AppComponent implements OnInit {
     this.sectionHeight = this.main.nativeElement.offsetHeight;
     this.currentYear = new Date().getFullYear();
     this.currentExp = this.currentYear - new Date('06.20.2016').getFullYear();
+    window.scrollTo({left: 0, top: 0});
   }
 }

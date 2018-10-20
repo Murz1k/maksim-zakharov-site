@@ -20,10 +20,11 @@
 }" (click)="goToSection(0)">
 
 </div>
-<div [class.active]="currentSection !== 0" class="menu">
-  <div (click)="goToSection(1)">Кто я?</div>
-  <div (click)="goToSection(2)">Почему я?</div>
-  <div (click)="goToSection(3)">Отзывы</div>
+<div class="menu">
+  <div [class.active]="currentSection === 0" (click)="goToSection(0)">Главная</div>
+  <div [class.active]="currentSection === 1" (click)="goToSection(1)">Кто я?</div>
+  <div [class.active]="currentSection === 2" (click)="goToSection(2)">Почему я?</div>
+  <div [class.active]="currentSection === 3" (click)="goToSection(3)">Отзывы</div>
 </div>
 <section [class.active]="currentSection === 0" #main>
   <div class="content main-section">
