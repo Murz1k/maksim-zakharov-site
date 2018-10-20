@@ -13,13 +13,17 @@ export class AppComponent implements OnInit {
 
   budgets = [];
   deadlines = [];
-  lastScrollTop = 0;
+  lastScrollTop = 1;
+  currentExp;
+  currentYear = 2016;
 
   keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
   scrolling = false;
 
   sectionHeight = 0;
+
+  currentSection = 0;
 
   load = false;
 
@@ -90,16 +94,44 @@ export class AppComponent implements OnInit {
   @HostListener('document:wheel', ['$event'])
   private onWheel($event: WheelEvent): void {
     console.log($event);
-    let height = 0;
     if ($event.deltaY > 0) {// down
-      if (this.lastScrollTop === 0) {
-        height = this.sectionHeight * 0;
-      }
+      this.next();
     } else {// top
-      height = this.sectionHeight * 0;
+      this.previous();
     }
-    window.scrollTo({left: 0, top: height, behavior: 'smooth'});
-    this.lastScrollTop = height;
+  }
+
+  previous() {
+    if (this.currentSection === 0 || this.load) {
+      return;
+    }
+
+    setTimeout(() => {
+      this.load = false;
+    }, 1000);
+
+    this.load = true;
+
+    this.goToSection(--this.currentSection);
+  }
+
+  next() {
+    if (this.currentSection === 3 || this.load) {
+      return;
+    }
+
+    setTimeout(() => {
+      this.load = false;
+    }, 1000);
+
+    this.load = true;
+
+    this.goToSection(++this.currentSection);
+  }
+
+  goToSection(currentSection: number) {
+    window.scrollTo({left: 0, top: (this.sectionHeight * currentSection) + 1, behavior: 'smooth'});
+    this.currentSection = currentSection;
   }
 
   @HostListener('document:scroll')
@@ -125,5 +157,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.disableScroll();
     this.sectionHeight = this.main.nativeElement.offsetHeight;
+    this.currentYear = new Date().getFullYear();
+    this.currentExp = this.currentYear - new Date('06.20.2016').getFullYear();
   }
 }

@@ -35,11 +35,19 @@ h2 {
   padding: 15px 35px;
   line-height: 20px;
   cursor: pointer;
+  border-radius: 2px;
   transition: .2s background-color;
+  &:hover {
+    background-color: #2466b5;
+  }
 }
 
-.btn:hover, .slider:hover::-webkit-slider-thumb {
-  background-color: #2466b5;
+a {
+  color: #2466b5;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 form {
@@ -47,8 +55,23 @@ form {
   margin: auto;
   input[type=submit] {
     display: flex;
-    margin: auto;
-    margin-top: 40px;
+    margin: 40px auto auto;
+  }
+}
+
+section {
+  background-color: #242424;
+  color: transparent;
+  transition: color 1s ease-in;
+  button, a {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+  &.active {
+    color: #fff;
+    button, a {
+      opacity: 1;
+    }
   }
 }
 
@@ -172,4 +195,88 @@ label.slider-label {
   border-radius: 50%;
   background: #4CAF50;
   cursor: pointer;
+}
+
+.main-section {
+
+}
+
+.center-container {
+  padding-top: calc(100vh / 2 - 260px);
+}
+
+.copyright {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}
+
+//Scroll down mouse
+.scroll-downs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  width: 34px;
+  height: 55px;
+  margin: auto auto 0;
+}
+
+.mousey {
+  width: 3px;
+  padding: 10px 15px;
+  height: 30px;
+  border: 1.5px solid #fff;
+  border-radius: 25px;
+  opacity: 0.5;
+  box-sizing: content-box;
+  cursor: pointer;
+  transition: opacity .2s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.scroller {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: #fff;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15, .41, .69, .94);
+  animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+}
+
+.menu {
+  position: fixed;
+  z-index: 1000;
+  color: white;
+  top: calc(100vh / 4);
+  left: 30px;
+  > div {
+    margin-bottom: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity .2s;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
