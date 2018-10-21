@@ -1,5 +1,6 @@
 import {AfterContentInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
   currentSection = 0;
 
   load = false;
+  isShowForm = false;
 
   @ViewChild('main') public main: ElementRef;
   @ViewChild('info') public info: ElementRef;
@@ -31,6 +33,10 @@ export class AppComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
+      company: [''],
+      description: ['', Validators.required],
       budget: 0,
       deadline: 1
     });
@@ -112,7 +118,7 @@ export class AppComponent implements OnInit {
   }
 
   next() {
-    if (this.currentSection === 3 || this.load) {
+    if (this.currentSection === 4 || this.load) {
       return;
     }
 
@@ -126,13 +132,13 @@ export class AppComponent implements OnInit {
   }
 
   goToSection(currentSection: number) {
-    if (this.currentSection === currentSection) {
+    if (this.currentSection === currentSection || this.isShowForm) {
       return;
     }
     //if (currentSection === 0) {
     //  window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
     //} else {
-      window.scrollTo({left: 0, top: (this.sectionHeight * currentSection) + 1, behavior: 'smooth'});
+    window.scrollTo({left: 0, top: (this.sectionHeight * currentSection) + 1, behavior: 'smooth'});
     //}
     this.currentSection = currentSection;
   }
@@ -140,7 +146,6 @@ export class AppComponent implements OnInit {
   @HostListener('document:scroll')
   private onScroll(): void {
     const st = window.pageYOffset || document.documentElement.scrollTop;
-    console.log(st);
     // if (this.currentSection === -1 && st > 0) {
     //   this.currentSection = 0;
     // }
@@ -154,11 +159,18 @@ export class AppComponent implements OnInit {
     return this.budgets[this.form.controls['budget'].value];
   }
 
+  showForm() {
+    this.isShowForm = true;
+  }
+
+  closeForm() {
+    this.isShowForm = false;
+  }
+
   ngOnInit(): void {
-    this.disableScroll();
+    //this.disableScroll();
     this.sectionHeight = this.main.nativeElement.offsetHeight;
     this.currentYear = new Date().getFullYear();
     this.currentExp = this.currentYear - new Date('06.20.2016').getFullYear();
-    window.scrollTo({left: 0, top: 0});
   }
 }

@@ -51,7 +51,7 @@ a {
 }
 
 form {
-  width: 600px;
+  width: 400px;
   margin: auto;
   input[type=submit] {
     display: flex;
@@ -61,15 +61,24 @@ form {
 
 section {
   color: #fff;
-  transition: opacity 0.5s;
-  opacity: 0;
+  background-color: #242424;
+  .content, button, a {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
   &.active {
-    opacity: 1;
+    .content, button, a {
+      opacity: 1;
+    }
   }
 }
 
+input:-webkit-autofill {
+  background-color: transparent !important;
+}
+
 label {
-  height: 60px;
+  min-height: 60px;
   display: flex;
   position: relative;
   margin-bottom: 20px;
@@ -79,21 +88,27 @@ label {
     transition: .2s margin;
     position: absolute;
   }
-  input[type=text], input[type=email] {
+  input[type=text], input[type=email], textarea {
     background-color: transparent;
     border: none;
     border-bottom: 2px solid #d3d3d3;
-    padding: 30px 20px 10px 20px;
+    padding: 0 20px 10px 20px;
+    margin-top: 30px;
     line-height: 18px;
     font-size: 16px;
     outline: none;
     flex: 1;
     transition: border-bottom .2s;
+    color: white;
     &:hover, &:focus {
       border-bottom: 2px solid #fff;
     }
   }
+  input[type=text].ng-dirty + span,
   input[type=text]:focus + span,
+  textarea.ng-dirty + span,
+  textarea:focus + span,
+  input[type=email].ng-dirty + span,
   input[type=email]:focus + span {
     margin: 0;
   }
@@ -101,9 +116,11 @@ label {
 
 section {
   height: 100vh;
-  position: sticky;
-  top: 0;
+  //position: sticky;
   width: 100%;
+  top: 0;
+
+  position: initial;
 }
 
 header {
@@ -200,7 +217,6 @@ label.slider-label {
   bottom: 40px;
 }
 
-//Scroll down mouse
 .scroll-downs {
   position: absolute;
   top: 0;
@@ -238,6 +254,10 @@ label.slider-label {
   animation-iteration-count: infinite;
 }
 
+section:first-of-type {
+  position: initial;
+}
+
 @keyframes scroll {
   0% {
     opacity: 0;
@@ -254,15 +274,15 @@ label.slider-label {
 
 .menu {
   position: fixed;
-  z-index: 1000;
+  z-index: 5;
   color: white;
-  top: calc(100vh / 4);
+  top: calc(100vh / 3);
   left: 30px;
   cursor: default;
   > div {
     margin-bottom: 10px;
     font-size: 20px;
-    opacity: 0.75;
+    opacity: 0.5;
     transition: opacity .2s;
     &:hover, &.active {
       opacity: 1;
@@ -270,3 +290,94 @@ label.slider-label {
     }
   }
 }
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 572px;
+  .left, .right {
+    vertical-align: top;
+  }
+  .left {
+    h2 {
+      margin-bottom: 40px;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.form-container {
+  background-color: #242424;
+  z-index: 1;
+  padding: 40px;
+  position: fixed;
+  height: 100vh;
+  right: -480px;
+  color: white;
+  top: 0;
+  transition: right .5s;
+}
+
+.open-button {
+  position: absolute;
+  left: -98px;
+  top: 78px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: transform .3s opacity .3s;
+  user-select: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.close-button {
+  user-select: none;
+  position: absolute;
+  left: -60px;
+  top: 40px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  transform: rotate(-90deg) translateX(200px);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: transform .3s opacity .3s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.form-background {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  right: -100%;
+  bottom: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: right .5s;
+  &.active {
+    right: 0;
+    z-index: 10;
+    .form-container {
+      right: 0;
+      border-left: 2px solid rgba(255, 255, 255, 0.5);
+      .open-button {
+        transform: rotate(-90deg) translateX(200px);
+      }
+      .close-button {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
