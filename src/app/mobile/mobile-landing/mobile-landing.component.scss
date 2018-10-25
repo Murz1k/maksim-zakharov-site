@@ -1,0 +1,46 @@
+h1 {
+  font-size: 2em;
+  color: white;
+  padding-top: 25vh;
+}
+
+h4 {
+  color: white;
+}
+
+section {
+  height: 100vh;
+  color: #fff;
+  background-color: #242424;
+  position: relative;
+}
+
+.socials {
+  margin-bottom: 20px;
+  a {
+    margin-right: 20px;
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}
+
+.info {
+  h2 {
+    margin-bottom: 20px;
+    a {
+      color: #fff;
+    }
+  }
+  button{
+    margin-top: 20px;
+  }
+}
+
+.copyright {
+  position: absolute;
+  right: 20px;
+  left: 20px;
+  bottom: 20px;
+}

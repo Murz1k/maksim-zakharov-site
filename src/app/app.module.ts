@@ -1,21 +1,21 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
+import {RootComponent} from './root/root.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {DeviceDetectorModule} from 'ngx-device-detector';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RootComponent
   ],
   imports: [
-    AppRoutingModule,
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule
+    AppRoutingModule,
+    DeviceDetectorModule.forRoot()
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

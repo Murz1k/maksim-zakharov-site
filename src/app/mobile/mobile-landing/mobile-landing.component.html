@@ -1,0 +1,73 @@
+<section>
+  <div class="content main-section">
+    <a routerLink="">
+      <h4 style="
+    color: white;
+    font-size: 24px;">Максим Захаров</h4>
+      <h4 style="
+    color: white;
+    font-size: 12px;">Web-разработчик</h4>
+    </a>
+    <h1>Разрабатотка сайтов</h1>
+    <h4>и информационных систем для бизнеса</h4>
+    <button style="margin-top: 30px" class="btn">Оставить заявку</button>
+  </div>
+</section>
+<section>
+  <div class="content">
+    <!--
+     Кто я такой?
+     3+ года в interprice разработке
+     Технологии:
+     Сервер: ASP.NET Core
+     База данных: MS SQL
+     Веб-клиент: Angular 2+, HTML, SCSS
+     Хостинг: Amazon Web Services
+     -->
+    <div class="center-container">
+      <h2>Кто я такой?</h2>
+      <h2>Более {{currentExp}} лет в enterprise разработке</h2>
+      <h2>Технологии:</h2>
+      <h2>Сервер: ASP.NET Core</h2>
+      <h2>База данных: MS SQL</h2>
+      <h2>Веб-клиент: Angular 2+, HTML, SCSS</h2>
+      <h2>Хостинг: Amazon Web Services</h2>
+      <h2><a href="https://github.com/Murz1k" target="_blank">Ссылка на Github</a></h2>
+    </div>
+  </div>
+</section>
+<section></section>
+<section>
+  <div class="content">
+    <h1><a [routerLink]="['/', 'projects']">Проекты</a></h1>
+  </div>
+</section>
+<section>
+  <div class="content">
+    <h1>Обо мне говорят</h1>
+  </div>
+</section>
+<section>
+  <div class="content">
+    <h4 style="
+    padding-top: calc((100vh - 500px) / 2);
+    margin-bottom: 20px;">Контактная информация</h4>
+    <h2>Свяжитесь со мной через удобный канал связи или оставьте заявку,
+      заполнив
+      форму</h2>
+    <div class="info">
+      <div class="socials">
+        <a href="tg://resolve?domain=max89701"><img src="../assets/telegram-icon.svg"/></a>
+        <a href="https://www.linkedin.com/in/maksim-zakharov-977179104/"><img
+          src="../assets/linkedin-icon.svg"/></a>
+        <a href="https://api.whatsapp.com/send?phone=79254306274"><img src="../assets/whatsapp-icon.svg"/></a>
+      </div>
+      <h2><a href="tel:+79254306274">+7 (925) 430 62 74</a></h2>
+      <h2><a href="mailto:max89701@gmail.com">max89701@gmail.com</a></h2>
+      <button class="btn">Оставить заявку</button>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2016 - {{currentYear}} Максим Захаров. Все права защищены.
+  </div>
+</section>

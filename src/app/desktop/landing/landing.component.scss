@@ -1,0 +1,349 @@
+.selfy {
+  right: -25vw;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  filter: grayscale(100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 15%, rgba(36, 36, 36, 1) 75%);
+}
+
+section {
+  color: #fff;
+  background-color: #242424;
+  .content, button, a {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  &.active {
+    .content, button, a {
+      opacity: 1;
+    }
+  }
+}
+
+section {
+  height: 100vh;
+  //position: sticky;
+  width: 100%;
+  top: 0;
+
+  position: relative;
+}
+
+header {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 60px;
+  .nav-bar {
+    display: flex;
+    .nav-bar-item {
+      padding: 20px 0;
+      margin-right: 20px;
+      a {
+        text-decoration: none;
+        line-height: 20px;
+        font-size: 18px;
+        color: rgb(171, 171, 171);
+        transition: .2s color;
+      }
+    }
+    .nav-bar-item:hover {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.center-container {
+  padding-top: calc((100vh - 420px) / 2);
+}
+
+.copyright {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+}
+
+.scroll-downs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  width: 34px;
+  height: 55px;
+  margin: auto auto 0;
+}
+
+.mousey {
+  width: 3px;
+  padding: 10px 15px;
+  height: 30px;
+  border: 1.5px solid #fff;
+  border-radius: 25px;
+  opacity: 0.5;
+  box-sizing: content-box;
+  cursor: pointer;
+  transition: opacity .2s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.scroller {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: #fff;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15, .41, .69, .94);
+  animation-iteration-count: infinite;
+}
+
+section:first-of-type {
+  position: initial;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+}
+
+.menu {
+  position: fixed;
+  z-index: 5;
+  color: white;
+  top: calc(100vh / 3);
+  left: 30px;
+  cursor: default;
+  > div {
+    margin-bottom: 10px;
+    font-size: 20px;
+    opacity: 0.5;
+    transition: opacity .2s;
+    &:hover, &.active {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 572px;
+  .left, .right {
+    vertical-align: top;
+  }
+  .left {
+    h2 {
+      margin-bottom: 40px;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+.form-container {
+  background-color: #242424;
+  z-index: 1;
+  padding: 40px;
+  position: fixed;
+  height: 100vh;
+  right: -480px;
+  color: white;
+  top: 0;
+  transition: right .5s;
+}
+
+.open-button {
+  outline: none;
+  position: absolute;
+  left: -98px;
+  top: 78px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  transform: rotate(-90deg);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: transform .3s opacity .3s;
+  user-select: none;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.close-button {
+  outline: none;
+  user-select: none;
+  position: absolute;
+  left: -60px;
+  top: 40px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  transform: rotate(-90deg) translateX(200px);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: transform .3s opacity .3s;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.form-background {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  right: -100%;
+  bottom: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: right .5s;
+  &.active {
+    right: 0;
+    z-index: 10;
+    .form-container {
+      right: 0;
+      border-left: 2px solid rgba(255, 255, 255, 0.5);
+      .open-button {
+        transform: rotate(-90deg) translateX(200px);
+      }
+      .close-button {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+label.slider-label {
+  display: flex;
+  span {
+    margin: auto 20px auto auto;
+    position: initial;
+    width: 60px;
+  }
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;
+  height: 2px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  flex: 1;
+  margin: auto;
+  -webkit-transition: .2s;
+  transition: opacity .2s, background .2s;
+}
+
+.slider-info {
+  margin: auto auto auto 20px;
+  width: 116px;
+  text-align: right;
+}
+
+.slider:hover {
+  background: #fff;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #103158;
+  cursor: pointer;
+  transition: .2s background-color;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+input:-webkit-autofill {
+  background-color: transparent !important;
+}
+
+label {
+  min-height: 60px;
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+  span {
+    margin: 30px 20px;
+    display: inline-block;
+    transition: .2s margin;
+    position: absolute;
+  }
+  input[type=text], input[type=email], textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #d3d3d3;
+    padding: 0 20px 10px 20px;
+    margin-top: 30px;
+    line-height: 18px;
+    font-size: 16px;
+    outline: none;
+    flex: 1;
+    transition: border-bottom .2s;
+    color: white;
+    &:hover, &:focus {
+      border-bottom: 2px solid #fff;
+    }
+  }
+  input[type=text].ng-dirty + span,
+  input[type=text]:focus + span,
+  textarea.ng-dirty + span,
+  textarea:focus + span,
+  input[type=email].ng-dirty + span,
+  input[type=email]:focus + span {
+    margin: 0;
+  }
+}
+
+form {
+  width: 400px;
+  margin: auto;
+  input[type=submit] {
+    display: flex;
+    margin: 40px auto auto;
+  }
+}
+
+
