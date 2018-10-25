@@ -10,7 +10,7 @@
     </a>
     <h1>Разрабатотка сайтов</h1>
     <h4>и информационных систем для бизнеса</h4>
-    <button style="margin-top: 30px" class="btn">Оставить заявку</button>
+    <button (click)="showForm()" style="margin-top: 30px" class="btn">Оставить заявку</button>
   </div>
 </section>
 <section>
@@ -64,10 +64,54 @@
       </div>
       <h2><a href="tel:+79254306274">+7 (925) 430 62 74</a></h2>
       <h2><a href="mailto:max89701@gmail.com">max89701@gmail.com</a></h2>
-      <button class="btn">Оставить заявку</button>
+      <button (click)="showForm()" class="btn">Оставить заявку</button>
     </div>
   </div>
   <div class="copyright">
     © 2016 - {{currentYear}} Максим Захаров. Все права защищены.
   </div>
 </section>
+
+
+<div class="form-background" [class.active]="isShowForm">
+  <div class="form-container">
+    <button class="close-button" (click)="closeForm()">Закрыть</button>
+    <h2 style="
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;">Оставить заявку</h2>
+    <form [formGroup]="form">
+      <label>
+        <input formControlName="name" type="text" id="name" placeholder=""/>
+        <span>Имя</span>
+      </label>
+      <label>
+        <input formControlName="email" type="email"/>
+        <span>Email</span>
+      </label>
+      <label>
+        <input formControlName="company" type="text"/>
+        <span>Компания / Организация</span>
+      </label>
+      <label>
+        <select formControlName="budget">
+          <option [value]="i" *ngFor="let budget of budgets; let i = index">{{budget}}</option>\
+        </select>
+        <div class="input-label">{{budget}}</div>
+        <span>Бюджет</span>
+      </label>
+      <label>
+        <select formControlName="deadline">
+          <option [value]="i" *ngFor="let deadline of deadlines; let i = index">{{deadline}}</option>\
+        </select>
+        <div class="input-label">{{deadline}}</div>
+        <span>Сроки</span>
+      </label>
+      <label>
+        <textarea formControlName="description" rows="4"></textarea>
+        <span>Описание проекта</span>
+      </label>
+      <input class="btn" type="submit" value="Отправить"/>
+    </form>
+  </div>
+</div>
