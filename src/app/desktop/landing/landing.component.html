@@ -25,10 +25,11 @@
   <div class="menu">
     <div [class.active]="currentSection === 0" (click)="goToSection(0)">Главная</div>
     <div [class.active]="currentSection === 1" (click)="goToSection(1)">Кто я?</div>
-    <div [class.active]="currentSection === 2" (click)="goToSection(2)">Почему я?</div>
+    <div [class.active]="currentSection === 2" (click)="goToSection(2)">Опыт работы</div>
     <div [class.active]="currentSection === 3" (click)="goToSection(3)">Проекты</div>
-    <div [class.active]="currentSection === 4" (click)="goToSection(4)">Отзывы</div>
-    <div [class.active]="currentSection === 5" (click)="goToSection(5)">Контакты</div>
+    <div [class.active]="currentSection === 4" (click)="goToSection(4)">Почему я?</div>
+    <div [class.active]="currentSection === 5" (click)="goToSection(5)">Отзывы</div>
+    <div [class.active]="currentSection === 6" (click)="goToSection(6)">Контакты</div>
   </div>
   <section [class.active]="currentSection === 0" #main>
     <div class="content main-section">
@@ -66,8 +67,83 @@
       </div>
     </div>
   </section>
-  <section [class.active]="currentSection === 2" #why>
+  <section [class.active]="currentSection === 2">
     <div class="content">
+      <h2 style="padding-top: calc(45vh - 154px); margin-bottom: 20px;">Опыт работы</h2>
+      <div class="works">
+        <div class="work-item">
+          <img src="../../../assets/works/wildberries.jpg"/>
+          <div class="work-info">
+            <div class="work-title">
+              Wildberries
+            </div>
+            <div class="work-site">
+              Сайт: <a href="https://wildberries.ru">wildberries.ru</a>
+            </div>
+            <div class="work-category">
+              Сферы деятельности: Розничная торговля, информационные технологии, системная интеграция, интернет
+            </div>
+            <div class="work-position">
+              Должность: Frontend разработчик
+            </div>
+            <div class="work-dates">
+              Даты: Июль 2018 - сегодня
+            </div>
+            <ul>
+              <li>Разработка CRM системы для HR</li>
+              <li>Разработка корпоративного портала</li>
+              <li>Разработка корпоративной библиотеки компонентов</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-item">
+          <img src="../../../assets/works/smartvalley.png"/>
+          <div class="work-info">
+            <div class="work-title">
+              Smart Valley
+            </div>
+            <div class="work-site">
+              Сайт: <a href="https://smartvalley.com">smartvalley.com</a>
+            </div>
+            <div class="work-category">
+              Сферы деятельности: Marketplace, Fin-tech, информационные технологии, интернет
+            </div>
+            <div class="work-position">
+              Должность: Fullstack блокчейн разработчик
+            </div>
+            <div class="work-dates">
+              Даты: Ноябрь 2017 - Июнь 2018
+            </div>
+            <ul>
+              <li>Разработка маркетплейса</li>
+              <li>Создание смарт-контрактов</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-item">
+          <img src="../../../assets/works/stack-group.jpg"/>
+          <div class="work-info">
+            <div class="work-title">
+              Stack Group
+            </div>
+            <div class="work-site">
+              Сайт: <a href="https://m1cloud.ru">m1cloud.ru</a>
+            </div>
+            <div class="work-category">
+              Сферы деятельности: Облачные сервисы, информационные технологии, интернет
+            </div>
+            <div class="work-position">
+              Должность: Младший разработчик информационных систем
+            </div>
+            <div class="work-dates">
+              Даты: Февраль 2017 - Ноябрь 2017
+            </div>
+            <ul>
+              <li>Разработка корпоративной CRM системы</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <section [class.active]="currentSection === 3" #project>
@@ -75,11 +151,58 @@
       <h1><a [routerLink]="['/', 'projects']">Проекты</a></h1>
     </div>
   </section>
-  <section [class.active]="currentSection === 4" #feedback>
+  <section [class.active]="currentSection === 4" #why>
     <div class="content">
     </div>
   </section>
-  <section [class.active]="currentSection === 5" #contacts>
+  <section [class.active]="currentSection === 5" #feedback>
+    <div class="content">
+      <h2 style="padding-top: calc(45vh - 154px); margin-bottom: 20px;">Обо мне говорят</h2>
+      <div class="smooth smooth-left"></div>
+      <div class="feedback">
+        <div class="feedback-member">
+          <img src="../../../assets/feedback-members/anton_agaltsov.jpg"/>
+          <div class="feedback-info">
+            <div class="author">
+              Антон Агальцов
+            </div>
+            <div class="position">
+              Team lead в компании <a href="https://wildberries.ru/" target="_blank">Wildberries</a>
+            </div>
+            <p>
+              (ПРИМЕР) Работник Такойто является самым отявленным негодяеи из всех негодяйских негодяев. Курит на
+              рабочем
+              месте, а
+              также пьёт и сквернословит трёхэтажным матом и в присутствии женщин и детей. Лупит чем попало подчинённых
+              и
+              дерётся с начальством. Прошу любить и жаловать. .
+            </p>
+          </div>
+        </div>
+        <div class="feedback-member">
+          <img src="../../../assets/feedback-members/ilya_vislotsky.jpg"/>
+          <div class="feedback-info">
+            <div class="author">
+              Илья Вислотский
+            </div>
+            <div class="position">
+              Глава отдела разработки в компании <a href="https://m1cloud.ru/" target="_blank">Stack Group</a>
+            </div>
+            <p>
+              (ПРИМЕР) Работник Такойто является самым отявленным негодяеи из всех негодяйских негодяев. Курит на
+              рабочем
+              месте, а
+              также пьёт и сквернословит трёхэтажным матом и в присутствии женщин и детей. Лупит чем попало подчинённых
+              и
+              дерётся с начальством. Прошу любить и жаловать. .
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="smooth smooth-right"></div>
+    </div>
+  </section>
+  <section [class.active]="currentSection === 6" #contacts>
     <div class="content">
       <h4 style="
     padding-top: calc((100vh - 400px) / 2);

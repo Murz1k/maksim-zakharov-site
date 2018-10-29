@@ -68,7 +68,7 @@ export class MobileLandingComponent implements OnInit {
   }
 
   showForm() {
-    this.disableScroll();
+    //this.disableScroll();
     this.isShowForm = true;
   }
 
